@@ -1,0 +1,62 @@
+description: "runs one or more aws ec2 instances"
+name: github.com/opspec-pkgs/aws.ec2.instances.run
+inputs:
+  imageId:
+    string:
+      constraints: { minLength: 1 }
+      description: ID of the AMI, which you can get by calling describe-images
+  accessKeyId:
+    string:
+      constraints: { minLength: 20 }
+      description: access key for AWS
+  secretAccessKey:
+    string:
+      constraints: { minLength: 20 }
+      description: secret access key for AWS
+  count:
+    string:
+      constraints: { minLength: 1 }
+      description: Number of instances to launch. If a single number is provided, it is assumed to be the minimum to launch (defaults to 1). If a range is provided in the form min:max then the first number is interpreted as the minimum number of instances to launch and the second is interpreted as the maximum number of instances to launch.
+      default: "1"
+  instanceType:
+    string:
+      constraints: { minLength: 1 }
+      description: See http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html for possible instance types
+      default: t2.micro
+  keyName:
+    string:
+      constraints: { minLength: 1 }
+      description: Name of the key pair
+      default: " "
+  monitoring:
+    string:
+      constraints: { enum: ["true", "false"] }
+      description: If detailed monitoring is enabled
+      default: "false"
+  region:
+    string:
+      constraints: { minLength: 1 }
+      description: default region
+      default: us-west-2
+  userData:
+    string:
+      constraints: { minLength: 1 }
+      description: User data to make available to the instance
+      default: " "
+version: 1.0.0
+run:
+  container:
+    cmd: [/cmd.sh]
+    envVars:
+      AWS_ACCESS_KEY_ID: $(accessKeyId)
+      AWS_SECRET_ACCESS_KEY: $(secretAccessKey)
+      AWS_DEFAULT_REGION: $(region)
+      count:
+      imageId:
+      instanceType:
+      keyName:
+      monitoring:
+    files:
+      /cmd.sh:
+      /userData: $(userData)
+    image: { ref: 'opspecpkgs/aws.ec2.instances.run:1.0.0' }
