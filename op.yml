@@ -13,6 +13,7 @@ inputs:
     string:
       constraints: { minLength: 20 }
       description: secret access key for AWS
+      isSecret: true
   count:
     string:
       constraints: { minLength: 1 }
