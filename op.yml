@@ -60,4 +60,4 @@ run:
     files:
       /cmd.sh:
       /userData: $(userData)
-    image: { ref: 'opspecpkgs/aws.ec2.instances.run:1.0.0' }
+    image: { ref: 'opspecpkgs/aws.ec2.instances.run:1.0.1' }
