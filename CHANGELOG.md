@@ -5,5 +5,11 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[1.0.1] - 2017-10-08
+
+### Fixed
+
+- secretAccessKey input not marked as secret
+
 ## \[1.0.0] - 2017-10-01
 

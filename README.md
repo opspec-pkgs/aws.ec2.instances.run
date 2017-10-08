@@ -9,20 +9,20 @@ runs one or more aws ec2 instances
 ## install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/aws.ec2.instances.run#1.0.0
+opctl pkg install github.com/opspec-pkgs/aws.ec2.instances.run#1.0.1
 ```
 
 ## run
 
 ```
-opctl run github.com/opspec-pkgs/aws.ec2.instances.run#1.0.0
+opctl run github.com/opspec-pkgs/aws.ec2.instances.run#1.0.1
 ```
 
 ## compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/aws.ec2.instances.run#1.0.0 }
+  pkg: { ref: github.com/opspec-pkgs/aws.ec2.instances.run#1.0.1 }
   inputs:
     imageId:
     accessKeyId:
