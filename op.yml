@@ -44,7 +44,7 @@ inputs:
       constraints: { minLength: 1 }
       description: User data to make available to the instance
       default: " "
-version: 1.0.0
+version: 1.0.1
 run:
   container:
     cmd: [/cmd.sh]
