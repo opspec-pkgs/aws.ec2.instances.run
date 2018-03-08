@@ -1,4 +1,4 @@
-description: "runs one or more aws ec2 instances"
+description: "Runs one or more aws ec2 instances"
 name: github.com/opspec-pkgs/aws.ec2.instances.run
 inputs:
   imageId:
@@ -44,7 +44,7 @@ inputs:
       constraints: { minLength: 1 }
       description: User data to make available to the instance
       default: " "
-version: 1.0.1
+version: 1.1.0
 run:
   container:
     cmd: [/cmd.sh]
@@ -60,4 +60,4 @@ run:
     files:
       /cmd.sh:
       /userData: $(userData)
-    image: { ref: 'opspecpkgs/aws.ec2.instances.run:1.0.1' }
+    image: { ref: 'opspecpkgs/aws.ec2.instances.run:1.1.0' }
